@@ -157,18 +157,7 @@ Array.from(operatorBtns).forEach((element) => {
     }
     updateMainBar();
   });
-  element.addEventListener("mousedown", (e) => {
-    element.classList.toggle("no-hover");
-    element.classList.add("operations-mouse-down");
-  });
-  element.addEventListener("mouseup", (e) => {
-    element.classList.toggle("no-hover");
-    element.classList.remove("operations-mouse-down");
-  });
-  element.addEventListener("mouseout", (e) => {
-    element.classList.remove("no-hover");
-    element.classList.remove("operations-mouse-down");
-  });
+  clickAnimation(element, "operations-mouse-down");
 });
 
 dotBtn.addEventListener("click", (e) => {
@@ -177,20 +166,7 @@ dotBtn.addEventListener("click", (e) => {
   }
 });
 
-dotBtn.addEventListener("mousedown", (e) => {
-  dotBtn.classList.toggle("no-hover");
-  dotBtn.classList.add("numbers-mouse-down");
-});
-
-dotBtn.addEventListener("mouseup", (e) => {
-  dotBtn.classList.toggle("no-hover");
-  dotBtn.classList.remove("numbers-mouse-down");
-});
-
-dotBtn.addEventListener("mouseout", (e) => {
-  dotBtn.classList.remove("no-hover");
-  dotBtn.classList.remove("numbers-mouse-down");
-});
+clickAnimation(dotBtn, "numbers-mouse-down");
 
 plusMinusBtn.addEventListener("click", (e) => {
   if (!(displayValue.charAt(0) == "-")) {
@@ -218,16 +194,5 @@ clearBtn.addEventListener("click", (e) => {
 });
 
 Array.from(specialOpBtns).forEach((element) => {
-  element.addEventListener("mousedown", (e) => {
-    element.classList.toggle("no-hover");
-    element.classList.add("special-op-mouse-down");
-  });
-  element.addEventListener("mouseup", (e) => {
-    element.classList.toggle("no-hover");
-    element.classList.remove("special-op-mouse-down");
-  });
-  element.addEventListener("mouseout", (e) => {
-    element.classList.remove("no-hover");
-    element.classList.remove("special-op-mouse-down");
-  });
+  clickAnimation(element, "special-op-mouse-down");
 });
