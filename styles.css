@@ -30,6 +30,8 @@ button {
   height: 500px;
   display: flex;
   flex-flow: column;
+  box-shadow: 0 0 40px #275083;
+  border-radius: 6px;
 }
 
 .history-bar {
