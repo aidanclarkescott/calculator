@@ -126,19 +126,27 @@ function handleOperator(nextOperator) {
   updateHistoryBar();
 }
 
+function clickAnimation(element, target) {
+  element.addEventListener("mousedown", (e) => {
+    element.classList.add("no-hover");
+    element.classList.add(target);
+  });
+  element.addEventListener("mouseup", (e) => {
+    element.classList.remove("no-hover");
+    element.classList.remove(target);
+  });
+  element.addEventListener("mouseout", (e) => {
+    element.classList.remove("no-hover");
+    element.classList.remove(target);
+  });
+}
+
 // Event Listeners
 Array.from(numberBtns).forEach((element) => {
   element.addEventListener("click", (e) => {
     inputDigit(e.target.innerHTML);
   });
-  element.addEventListener("mousedown", (e) => {
-    element.classList.toggle("no-hover");
-    element.classList.add("numbers-mouse-down");
-  });
-  element.addEventListener("mouseup", (e) => {
-    element.classList.toggle("no-hover");
-    element.classList.remove("numbers-mouse-down");
-  });
+  clickAnimation(element, "numbers-mouse-down");
 });
 
 Array.from(operatorBtns).forEach((element) => {
@@ -157,6 +165,10 @@ Array.from(operatorBtns).forEach((element) => {
     element.classList.toggle("no-hover");
     element.classList.remove("operations-mouse-down");
   });
+  element.addEventListener("mouseout", (e) => {
+    element.classList.remove("no-hover");
+    element.classList.remove("operations-mouse-down");
+  });
 });
 
 dotBtn.addEventListener("click", (e) => {
@@ -172,6 +184,11 @@ dotBtn.addEventListener("mousedown", (e) => {
 
 dotBtn.addEventListener("mouseup", (e) => {
   dotBtn.classList.toggle("no-hover");
+  dotBtn.classList.remove("numbers-mouse-down");
+});
+
+dotBtn.addEventListener("mouseout", (e) => {
+  dotBtn.classList.remove("no-hover");
   dotBtn.classList.remove("numbers-mouse-down");
 });
 
@@ -207,6 +224,10 @@ Array.from(specialOpBtns).forEach((element) => {
   });
   element.addEventListener("mouseup", (e) => {
     element.classList.toggle("no-hover");
+    element.classList.remove("special-op-mouse-down");
+  });
+  element.addEventListener("mouseout", (e) => {
+    element.classList.remove("no-hover");
     element.classList.remove("special-op-mouse-down");
   });
 });
