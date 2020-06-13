@@ -20,6 +20,8 @@ const calculator = {
 };
 
 // Functions
+
+//Operations
 function add(one, two) {
   return one + two;
 }
